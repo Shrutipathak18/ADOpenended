@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <style>.header {
+        height: 72px;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        border-bottom: 9px solid #333;
+        position: relative;
+    }
+    
+    /* Left Header - Logo */
+    .leftheader {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+    }
+    
+    .leftheader .logo_alignment {
+        height: 60px;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+        padding-left: 0;
+        transition: transform 0.3s ease;
+    }
+    
+    .leftheader .logo_alignment:hover {
+        transform: scale(1.05);
+    }
+    
+    /* Center Header - Navigation */
+    .centerheader {
+        flex: 1;
+        display: flex;
+        
+        height: 100%;
+    }
+    
+    .navigation ul.topmenu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        align-items: left;
+    }
+    
+    .navigation ul.topmenu > li {
+        position: relative;
+        padding: 0 15px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .navigation ul.topmenu li div.down {
+        white-space: nowrap;
+        padding: 10px 0;
+        cursor: pointer;
+        font-weight: 500;
+        color: #333;
+    }
+    
+    .navigation .down span.arrow {
+        color: #aaa;
+        font-size: 80%;
+        margin-left: 5px;
+        transition: transform 0.3s;
+    }
+    
+    .navigation ul.topmenu > li:hover .arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Dropdown Menu */
+    .navigation .submenu {
+        position: absolute;
+        top: 100%;
+        left: -1px;
+        background: white;
+        border: 1px solid #ccc;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        min-width: 200px;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        padding: 10px 0;
+        font-size: 1.0em;
+        text-align: left;
+    }
+    
+    .navigation ul.topmenu > li:hover .submenu {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .submenu li {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .submenu li a {
+        display: block;
+        padding: 8px 20px;
+        color: #555;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+    
+    .submenu li a:hover {
+        background-color: #f5f5f5;
+        color: #a00;
+    }
+    
+    /* Right Header - Buttons */
+    .rightheader {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: space-evenly;
+    }
+    
+    .q-buttons-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        position: relative;
+        box-shadow: inset 1px 0px 0px 0px #ccc;
+    }
+    
+    .q-buttons-top {
+        display: flex;
+        margin-bottom: 5px;
+    }
+    
+    .linklogin {
+        display: inline;
+        padding: 0.6em 0.5em;
+        border-radius: 4px;
+        margin: 0 2px;
+        cursor: pointer;
+        white-space: nowrap;
+        font-size: 0.85em;
+        text-decoration: none;
+        font-weight: normal;
+        transition: all 0.3s;
+        justify-content: space-evenly;
+        
+    }
+    
+    .linklogin.one {
+        background-color: #c92e2c;
+        color: white;
+    }
+    
+    .linklogin.two {
+        background-color: #0086a6;
+        color: white;
+    }
+    
+    .q-buttons-bottom {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .q-links a {
+        color: #005577;
+        text-decoration: none;
+        font-size: 0.85em;
+        display: flex;
+        align-items: center;
+    }
+    
+    .q-links a.pubs::before {
+        width: 15px;
+        height: 17px;
+        content: url('/images/i-pubs.png');
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    
+    .q-links a.cfp::before {
+        width: 15px;
+        height: 17px;
+        content: url('/images/i-cfp.png');
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    
+    /* Mobile Menu */
+    .burger {
+        display: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+    
+    .burger-lay {
+        width: 2.2em;
+        height: 5px;
+        background-color: black;
+        margin: 5px 0;
+        transition: all 0.3s;
+    }
+    
+    /* Background Image Styles */
+    .vcs-background {
+        background: #350f06 url('/images/image-vcs-ad.jpg') no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    
+    /* Service Icons */
+    .services_icon {
+        height: 50px;
+        width: auto;
+        margin-bottom: 15px;
+    }
+    
+    /* Responsive Adjustments */
+    @media only screen and (max-width: 980px) {
+        .navigation {
+            display: none;
+        }
+        
+        .burger {
+            display: block;
+        }
+        
+        .header {
+            padding: 0 15px;
+        }
+        
+        .leftheader .logo_alignment {
+            height: 52px;
+        }
+        
+        .linklogin {
+            padding: 0.6em 0.5em;
+            font-size: 0.8em;
+        }
+        
+        .q-links a {
+            font-size: 0.8em;
+        }
+        
+        .q-links a.pubs::before,
+        .q-links a.cfp::before {
+            width: 12px;
+            height: 14px;
+            margin-right: 5px;
+        }
+    }
+    
+    @media only screen and (max-width: 550px) {
+        .leftheader .logo_alignment {
+            height: 48px;
+        }
+        
+        .rightheader {
+            width: 12.0em;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .q-buttons-container {
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            box-shadow: none;
+        }
+        
+        .q-buttons-top {
+            margin-bottom: 0;
+            margin-right: 10px;
+        }
+    }
+    
+    .header {
+        height: 72px;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        border-bottom: 9px solid #333;
+        position: relative;
+    }
+    
+    /* Left Header - Logo */
+    .leftheader {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+    }
+    
+    .leftheader .logo_alignment {
+        height: 60px;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+        padding-left: 0;
+        transition: transform 0.3s ease;
+    }
+    
+    .leftheader .logo_alignment:hover {
+        transform: scale(1.05);
+    }
+    
+    /* Center Header - Navigation */
+    .centerheader {
+        flex: 1;
+        display: flex;
+        
+        height: 100%;
+    }
+    
+    .navigation ul.topmenu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        align-items: left;
+    }
+    
+    .navigation ul.topmenu > li {
+        position: relative;
+        padding: 0 15px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .navigation ul.topmenu li div.down {
+        white-space: nowrap;
+        padding: 10px 0;
+        cursor: pointer;
+        font-weight: 500;
+        color: #333;
+    }
+    
+    .navigation .down span.arrow {
+        color: #aaa;
+        font-size: 80%;
+        margin-left: 5px;
+        transition: transform 0.3s;
+    }
+    
+    .navigation ul.topmenu > li:hover .arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Dropdown Menu */
+    .navigation .submenu {
+        position: absolute;
+        top: 100%;
+        left: -1px;
+        background: white;
+        border: 1px solid #ccc;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        min-width: 200px;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        padding: 10px 0;
+        font-size: 1.0em;
+        text-align: left;
+    }
+    
+    .navigation ul.topmenu > li:hover .submenu {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .submenu li {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .submenu li a {
+        display: block;
+        padding: 8px 20px;
+        color: #555;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+    
+    .submenu li a:hover {
+        background-color: #f5f5f5;
+        color: #a00;
+    }
+    
+    /* Right Header - Buttons */
+    .rightheader {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: space-evenly;
+    }
+    
+    .q-buttons-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        position: relative;
+        box-shadow: inset 1px 0px 0px 0px #ccc;
+    }
+    
+    .q-buttons-top {
+        display: flex;
+        margin-bottom: 5px;
+    }
+    
+    .linklogin {
+        display: inline;
+        padding: 0.6em 0.5em;
+        border-radius: 4px;
+        margin: 0 2px;
+        cursor: pointer;
+        white-space: nowrap;
+        font-size: 0.85em;
+        text-decoration: none;
+        font-weight: normal;
+        transition: all 0.3s;
+        justify-content: space-evenly;
+        
+    }
+    
+    .linklogin.one {
+        background-color: #c92e2c;
+        color: white;
+    }
+    
+    .linklogin.two {
+        background-color: #0086a6;
+        color: white;
+    }
+    
+    .q-buttons-bottom {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .q-links a {
+        color: #005577;
+        text-decoration: none;
+        font-size: 0.85em;
+        display: flex;
+        align-items: center;
+    }
+    
+    .q-links a.pubs::before {
+        width: 15px;
+        height: 17px;
+        content: url('/images/i-pubs.png');
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    
+    .q-links a.cfp::before {
+        width: 15px;
+        height: 17px;
+        content: url('/images/i-cfp.png');
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    
+    /* Mobile Menu */
+    .burger {
+        display: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+    
+    .burger-lay {
+        width: 2.2em;
+        height: 5px;
+        background-color: black;
+        margin: 5px 0;
+        transition: all 0.3s;
+    }
+    
+    /* Background Image Styles */
+    .vcs-background {
+        background: #350f06 url('/images/image-vcs-ad.jpg') no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    
+    /* Service Icons */
+    .services_icon {
+        height: 50px;
+        width: auto;
+        margin-bottom: 15px;
+    }
+    
+    /* Responsive Adjustments */
+    @media only screen and (max-width: 980px) {
+        .navigation {
+            display: none;
+        }
+        
+        .burger {
+            display: block;
+        }
+        
+        .header {
+            padding: 0 15px;
+        }
+        
+        .leftheader .logo_alignment {
+            height: 52px;
+        }
+        
+        .linklogin {
+            padding: 0.6em 0.5em;
+            font-size: 0.8em;
+        }
+        
+        .q-links a {
+            font-size: 0.8em;
+        }
+        
+        .q-links a.pubs::before,
+        .q-links a.cfp::before {
+            width: 12px;
+            height: 14px;
+            margin-right: 5px;
+        }
+    }
+    
+    @media only screen and (max-width: 550px) {
+        .leftheader .logo_alignment {
+            height: 48px;
+        }
+        
+        .rightheader {
+            width: 12.0em;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .q-buttons-container {
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            box-shadow: none;
+        }
+        
+        .q-buttons-top {
+            margin-bottom: 0;
+            margin-right: 10px;
+        }
+    }
+    /* Main content container */
+    .pagecontent {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px 40px;
+        box-sizing: border-box;
+        unicode-bidi: isolate;
+    }
+    
+    /* Content styling */
+    .pagecontent p {
+        margin: 15px 0;
+        line-height: 1.6;
+        color: #333;
+    }
+    
+    /* List styling */
+    .pagecontent ul, 
+    .pagecontent ol {
+        margin: 15px 0;
+        padding-left: 25px;
+    }
+    
+    .pagecontent li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+    }
+    
+    /* Section headings */
+    .pagecontent h2 {
+        color: #184e77;
+        font-size: 1.4em;
+        margin: 25px 0 15px 0;
+        font-weight: bold;
+        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    }
+    
+    /* Figure styling */
+    .pagecontent figure {
+        margin: 25px 0;
+        text-align: center;
+    }
+    
+    .pagecontent figure img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    .pagecontent figcaption {
+        margin-top: 8px;
+        font-style: italic;
+        color: #666;
+        font-size: 0.9em;
+    }
+    
+    /* Responsive adjustments */
+    @media only screen and (max-width: 768px) {
+        .pagecontent {
+            padding: 0 15px 30px;
+        }
+        
+        .pagetitle {
+            padding-left: 15pt;
+        }
+    }
+    .pagetitle {
+        padding: 8pt 0pt 10pt 20pt;
+        background-position: left bottom;
+        border-left: 7pt #aa0000 solid;
+        font-weight: bold;
+        font-size: 1.4em;
+        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+        margin: 20px auto;
+        color: #aa0000;
+        width: 100%;
+        max-width: 800px;
+    }</style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="burgerheader">
+            <div class="burger">
+                <ul class="topmenu">
+                    <div ontouchstart="Menu.touchBurger(event);" class="b-down">
+                        <div class="burger-lay"></div>
+                        <div class="burger-lay"></div>
+                        <div class="burger-lay"></div>
+                    </div>
+                    <li>
+                        <ul class="top-submenu" id="top-menu">
+                            <li>
+                                <div class="b-down" ontouchstart="Menu.touchItem(event);">Services <span
+                                        class="arrow">▼</span></div>
+                                <ul class="low-submenu">
+                                    <li><a href="/conference_management">Conference management</a></li>
+                                    <li><a href="/registration">Registration</a></li>
+                                    <li><a href="/publishing">Publishing</a></li>
+                                    <li><a href="/smart_cfp">Smart CFP</a></li>
+                                    <li><a href="/smart_slide">Smart Slide</a></li>
+                                    <li><a href="/smart_program">Smart Program</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="b-down" ontouchstart="Menu.touchItem(event);">About us <span
+                                        class="arrow">▼</span></div>
+                                <ul class="low-submenu">
+                                    <li><a href="/overview">Overview</a></li>
+                                    <li><a href="/contact">Contact</a></li>
+                                    <li><a href="/jobs">Careers</a></li>
+                                    <li><a href="/testimonials">Testimonials</a></li>
+                                    <li><a href="/policy">Policy for conferences</a></li>
+                                    <li><a href="/privacy">Privacy</a></li>
+                                    <li><a href="/terms">Terms of service</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="b-down" ontouchstart="Menu.touchItem(event);">For conferences <span
+                                        class="arrow">▼</span></div>
+                                <ul class="low-submenu">
+                                    <li><a href="/installation">Create conference</a></li>
+                                    <li><a href="/licenses">License information</a></li>
+                                    <li><a href="/license_pricing">License pricing</a></li>
+                                    <li><a href="/faq">FAQ</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="b-down" ontouchstart="Menu.touchItem(event);">Contact <span
+                                        class="arrow">▼</span></div>
+                                <ul class="low-submenu">
+                                    <li><a href="general_qs.html">General contact questions</a></li>
+                                    <li><a href="contact_sales.html">Contact sales</a></li>
+                                    <li><a href="ReqDemo.html">Request demo</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="leftheader"><a title="EasyChair home page" href="/"><img class="logo_alignment"
+                    alt="EasyChair home page" title="EasyChair home page" id="main_logo" src="/images/logoEC.png"></a>
+        </div>
+        <div class="centerheader">
+            <div class="navigation">
+                <ul class="topmenu">
+                    <li>
+                        <div ontouchend="Menu.touchItem(event);" class="down">Services <span class="arrow">▼</span>
+                        </div>
+                        <ul class="submenu">
+                            <li><a href="/conference_management">Conference management</a></li>
+                            <li><a href="/registration">Registration</a></li>
+                            <li><a href="/publishing">Publishing</a></li>
+                            <li><a href="/smart_cfp">Smart CFP</a></li>
+                            <li><a href="/smart_slide">Smart Slide</a></li>
+                            <li><a href="/smart_program">Smart Program</a></li>
+                            <li><a href="ReqDemo.html" class="pseudobutton">Request a demo</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div ontouchend="Menu.touchItem(event);" class="down">About us <span class="arrow">▼</span>
+                        </div>
+                        <ul class="submenu">
+                            <li><a href="/overview">Overview</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/jobs">Careers</a></li>
+                            <li><a href="/testimonials">Testimonials</a></li>
+                            <li><a href="/policy">Policy for conferences</a></li>
+                            <li><a href="/privacy">Privacy</a></li>
+                            <li><a href="/terms">Terms of service</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div ontouchend="Menu.touchItem(event);" class="down">For conferences <span
+                                class="arrow">▼</span></div>
+                        <ul class="submenu">
+                            <li><a href="/installation">Create conference</a></li>
+                            <li><a href="/licenses">License information</a></li>
+                            <li><a href="/license_pricing">License pricing</a></li>
+                            <li><a href="/faq">FAQ</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div ontouchend="Menu.touchItem(event);" class="down">Contact <span class="arrow">▼</span>
+                        </div>
+                        <ul class="submenu">
+                            <li><a href="general_qs.html">General contact questions</a></li>
+                            <li><a href="contact_sales.html">Contact sales</a></li>
+                            <li><a href="ReqDemo.html">Request demo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="rightheader">
+            <div class="q-buttons-container">
+                <div class="q-buttons-top">
+                    <div class="linklogin one"><a href="/conferences/conference_new" title="Create a conference">Create
+                            a conference</a></div>
+                    <div class="linklogin two"><a title="Log in to EasyChair" href="/account/signin">Log in</a>
+                    </div>
+                </div>
+                <div class="q-buttons-bottom">
+                    <div class="q-links"><a href="/publications" title="Go to EasyChair Publications"
+                            class="pubs">Publications</a></div>
+                    <div class="q-links"><a class="cfp" title="Go to EasyChair Smart CFP" href="/cfp">Smart CFP</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="stripe colors-services flex-grow-1">
+        <div class="segment">
+            <div class="pagetitle">Smart CFP</div>
+            <div class="pagecontent">
+                <p>Within minutes, you can publish your conference call for submissions and
+                    reach our 2 million users. With 1.8 million monthly visitors, your
+                    conference is guaranteed to reach your target audience.Our <span class="accentuation">free to
+                        use</span> CFP service acts as a platform for conference
+                    organizations to notify participants from all around the globe about their
+                    upcoming conference. Information such as conference name, venue, Program
+                    committee, research area etc are all present at one glance, allowing
+                    participants to easily find their perfect conference.</p>
+                <p>Users can search for conferences using the following criteria:</p>
+                <ul>
+                    <li>research area</li>
+                    <li>country of conference</li>
+                    <li>topics</li>
+                    <li>specific tags, for example, artificial intelligence, biotechnology,
+                        covid19, supply chain management</li>
+                </ul>
+                <p></p>
+                <figure><img class="screen_alignment" src="/images/cfp-create.png">
+                    <figcaption>CFP creation screen example</figcaption>
+                </figure>
+                <figure><img class="screen_alignment" src="/images/cfp.png">
+                    <figcaption>Smart CFP screen example</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

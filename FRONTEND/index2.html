@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyChair</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="home">
+    <div class="page">
+        <div class="header">
+            <div class="burgerheader">
+                <div class="burger">
+                    <ul class="topmenu">
+                        <div ontouchstart="Menu.touchBurger(event);" class="b-down">
+                            <div class="burger-lay"></div>
+                            <div class="burger-lay"></div>
+                            <div class="burger-lay"></div>
+                        </div>
+                        <li>
+                            <ul class="top-submenu" id="top-menu">
+                                <li>
+                                    <div class="b-down" ontouchstart="Menu.touchItem(event);">Services <span
+                                            class="arrow">▼</span></div>
+                                    <ul class="low-submenu">
+                                        <li><a href="ConferenceManagement.html">Conference management</a></li>
+                                        <li><a href="registration.html">Registration</a></li>
+                                        <li><a href="publishing.html">Publishing</a></li>
+                                        <li><a href="smart_cfp.html">Smart CFP</a></li>
+                                        <li><a href="SmartSlide.html">Smart Slide</a></li>
+                                        <li><a href="/smart_program">Smart Program</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="b-down" ontouchstart="Menu.touchItem(event);">About us <span
+                                            class="arrow">▼</span></div>
+                                    <ul class="low-submenu">
+                                        <li><a href="/overview">Overview</a></li>
+                                        <li><a href="/contact">Contact</a></li>
+                                        <li><a href="/jobs">Careers</a></li>
+                                        <li><a href="/testimonials">Testimonials</a></li>
+                                        <li><a href="/policy">Policy for conferences</a></li>
+                                        <li><a href="/privacy">Privacy</a></li>
+                                        <li><a href="/terms">Terms of service</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="b-down" ontouchstart="Menu.touchItem(event);">For conferences <span
+                                            class="arrow">▼</span></div>
+                                    <ul class="low-submenu">
+                                        <li><a href="/installation">Create conference</a></li>
+                                        <li><a href="/licenses">License information</a></li>
+                                        <li><a href="/license_pricing">License pricing</a></li>
+                                        <li><a href="/faq">FAQ</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="b-down" ontouchstart="Menu.touchItem(event);">Contact <span
+                                            class="arrow">▼</span></div>
+                                    <ul class="low-submenu">
+                                        <li><a href="general_qs.html">General contact questions</a></li>
+                                        <li><a href="contact_sales.html">Contact sales</a></li>
+                                        <li><a href="ReqDemo.html">Request demo</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="leftheader"><a title="EasyChair home page" href="/"><img class="logo_alignment"
+                        alt="EasyChair home page" title="EasyChair home page" id="main_logo"
+                        src="/images/logoEC.png"></a></div>
+            <div class="centerheader">
+                <div class="navigation">
+                    <ul class="topmenu">
+                        <li>
+                            <div ontouchend="Menu.touchItem(event);" class="down">Services <span class="arrow">▼</span>
+                            </div>
+                            <ul class="submenu">
+                                <li><a href="ConferenceManagement.html">Conference management</a></li>
+                                <li><a href="registration.html">Registration</a></li>
+                                <li><a href="publishing.html">Publishing</a></li>
+                                <li><a href="smart_cfp.html">Smart CFP</a></li>
+                                <li><a href="SmartSlide.html">Smart Slide</a></li>
+                                <li><a href="/smart_program.html">Smart Program</a></li>
+                                <li><a href="ReqDemo.html" class="pseudobutton">Request a demo</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div ontouchend="Menu.touchItem(event);" class="down">About us <span class="arrow">▼</span>
+                            </div>
+                            <ul class="submenu">
+                                <li><a href="/overview">Overview</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                                <li><a href="/jobs">Careers</a></li>
+                                <li><a href="/testimonials">Testimonials</a></li>
+                                <li><a href="/policy">Policy for conferences</a></li>
+                                <li><a href="/privacy">Privacy</a></li>
+                                <li><a href="/terms">Terms of service</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div ontouchend="Menu.touchItem(event);" class="down">For conferences <span
+                                    class="arrow">▼</span></div>
+                            <ul class="submenu">
+                                <li><a href="/CreateConference.html">Create conference</a></li>
+                                <li><a href="https://easychair.org/licenses">License information</a></li>
+                                <li><a href="https://easychair.org/license_pricing">License pricing</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div ontouchend="Menu.touchItem(event);" class="down">Contact <span class="arrow">▼</span>
+                            </div>
+                            <ul class="submenu">
+                                <li><a href="general_qs.html">General contact questions</a></li>
+                                <li><a href="contact_sales.html">Contact sales</a></li>
+                                <li><a href="ReqDemo.html">Request demo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rightheader">
+                <div class="q-buttons-container">
+                    <div class="q-buttons-top">
+                        <div class="linklogin one"><a href="/conferences/conference_new"
+                                title="Create a conference">Create a conference</a></div>
+                        <div class="linklogin two"><a title="Log in to EasyChair" href="/account/signin">Log in</a>
+                        </div>
+                    </div>
+                    <div class="q-buttons-bottom">
+                        <div class="q-links"><a href="/publishing.html" title="Go to EasyChair Publications"
+                                class="pubs">Publications</a></div>
+                        <div class="q-links"><a class="cfp" title="Go to EasyChair Smart CFP" href="smart_cfp.html">Smart CFP</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="stripe vcs-background">
+            <div class="segment">
+                <div class="title-block">
+                    <div class="title-text">
+                        <h1>You chair a conference.<br>We have all you need.<br>One platform: EasyChair</h1>
+                    </div>
+                    <div class="main-buttons">
+                        <div class="pseudobutton" onclick="window.location.href='ReqDemo.html'">Request a demo</div>
+                        <div class="pseudobutton" onclick="window.location.href='contact_sales.html'">Contact sales</div>
+                        <div class="pseudobutton" onclick="window.location.href='general_qs.html'">General questions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="stripe services-bg-color">
+            <div class="segment">
+                <div class="content-row">
+                    <div class="row-title">
+                        <h1>Services we provide</h1>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div class="content-block basis-3"><img src="/images/management-icon.png" class="services_icon"
+                            alt="Conference management system">
+                        <h2><a href="ConferenceManagement.html">Conference management system</a></h2>
+                        <p>From managing program committees to publishing proceedings,
+                            our EasyChair system has got you covered. Support from over
+                            4.00 million users and 120,374 conferences
+                            show that our professionalism has perfected managing a
+                            well-organized conference from scratch.</p>
+                        <p class="learnmore-link"><a href="ConferenceManagement.html">Learn more <span
+                                    class="arrow-more">▶</span></a></p>
+                    </div>
+                    <div class="content-block basis-3"><img alt="Registration" class="services_icon"
+                            src="/images/registration-icon.png">
+                        <h2><a href="Registration.html">Registration</a></h2>
+                        <p>We can create complex registration forms to support your attendee
+                            registration and make registration up in running in a few hours. We
+                            can help you accept online payments in 14 currencies. Your authors and
+                            reviewers can register using the same environment they used for
+                            submission and reviewing.</p>
+                        <p class="learnmore-link"><a href="Registration.html">Learn more <span
+                                    class="arrow-more">▶</span></a></p>
+                    </div>
+                    <div class="content-block basis-3"><img src="/images/publishing-icon.png" alt="Publishing"
+                            class="services_icon">
+                        <h2><a href="Publishing.html">Publishing</a></h2>
+                        <p>Our publishing services range from computing to health sciences (<a href="/publishing.html">see
+                                full list</a>). They provide fast and flexible publication of proceedings and
+                            collections in various areas of science. Publication services are
+                            integrated with conference management, thus providing a
+                            seamless process of submission-to-publication of reviewed content.</p>
+                        <p class="learnmore-link"><a href="Publishing.html">Learn more <span class="arrow-more">▶</span></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div class="content-block basis-3"><img src="/images/smartCFP-icon.png" class="services_icon"
+                            alt="Smart CFP">
+                        <h2><a href="smart_cfp.html">Smart CFP</a></h2>
+                        <p>Within minutes, you can publish your conference call for submissions and
+                            reach our 2 million users. With 1.8 million monthly visitors, your
+                            conference is guaranteed to reach your target audience.</p>
+                        <p class="learnmore-link"><a href="smart_cfp.html">Learn more <span class="arrow-more">▶</span></a>
+                        </p>
+                    </div>
+                    <div class="content-block basis-3"><img alt="Smart Slide" class="services_icon"
+                            src="/images/smartslide-icon.png">
+                        <h2><a href="SmartSlide.html">Smart Slide</a></h2>
+                        <p>Our Smart Slide platform allows authors to publish their slides and
+                            users to access and/or download the slides before and after the
+                            conference. This facilitates rapid dissemination of research
+                            results as the content of slides is easy to acquire in a short time.</p>
+                        <p class="learnmore-link"><a href="SmartSlide.html">Learn more <span
+                                    class="arrow-more">▶</span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

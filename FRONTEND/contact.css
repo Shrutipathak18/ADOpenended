@@ -1,0 +1,251 @@
+        /* Main page structure */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.5;
+          }
+          
+          .page {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+            min-height: 100vh;
+            box-sizing: border-box;
+          }
+          
+          /* Header styles */
+          .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            width: 100%;
+          }
+          
+          .logocell {
+            flex: 0 0 auto;
+          }
+          
+          .leftlogo {
+            height: 40px;
+          }
+          
+          .rolecell {
+            flex: 1;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #669bbc;
+          }
+          
+          .helplink {
+            flex: 0 0 auto;
+          }
+          
+          .toplinks {
+            text-decoration: none;
+            color: green;
+          }
+          
+          .toplinks:hover {
+            text-decoration: underline;
+          }
+          
+          /* Navigation menu */
+          .menu {
+            background-color: #0073aa;
+            padding: 10px 20px;
+        }
+        
+        .menu ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+        }
+        
+        .menu li {
+            margin-right: 20px;
+        }
+        
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px; /* Add padding around the text */
+            border-radius: 4px;  /* Make it like the screenshot */
+            background-color: #184e77;
+        }
+        .menu a:hover {
+            background-color: #005f8d; /* Change background on hover */
+        }
+          /* Main content area */
+          .content {
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-sizing: border-box;
+          }
+          
+          .summary {
+            margin-bottom: 20px;
+            background-color: #f0f0f0;
+            padding: 15px 0;
+            text-align: center;
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            box-sizing: border-box;
+          }
+          
+          .pagetitle {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+            text-align: center;
+            width: 100%;
+          }
+          
+          .subcontent {
+            margin-bottom: 20px;
+            width: 800px; /* Set the width */
+            background-color: #f0f0f0; /* Light grey background */
+            padding: 20px; /* Add padding around the content */
+            border: 1px solid #ccc; /* Optional: Add a subtle border */
+            border-radius: 0; /* Remove border radius for square corners */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Remove box shadow */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align content to the top */
+          }
+          
+          .subcontent p {
+            margin-bottom: 15px;
+          }
+          
+          .subcontent a {
+            color: #0066cc;
+            text-decoration: none;
+          }
+          
+          .subcontent a:hover {
+            text-decoration: underline;
+          }
+          
+          /* Form styles */
+          .demo-form {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+          }
+          
+          .formtable {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+          }
+          
+          .formtable td {
+            padding: 10px;
+            vertical-align: top;
+          }
+          
+          .formtable td.right {
+            text-align: right;
+            width: 25%;
+            font-weight: bold;
+            white-space: nowrap;
+          }
+          
+          .formtable td.center {
+            text-align: center;
+          }
+          
+          .redstar {
+            color: #ff0000;
+            font-weight: bold;
+            margin-left: 4px;
+          }
+          
+          input[type="text"],
+          input[type="email"],
+          textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 14px;
+          }
+          
+          textarea {
+            resize: vertical;
+          }
+          
+          button[type="submit"] {
+            background-color: #800000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+          }
+          
+          button[type="submit"]:hover {
+            background-color: #2a5db0;
+          }
+          
+          /* Captcha styles */
+          .captcha-container {
+            margin: 15px 0;
+            text-align: center;
+            display: block;
+          }
+          
+          .h-captcha {
+            display: inline-block;
+            margin: 0 auto 15px auto;
+            text-align: center;
+          }
+          
+          /* Footer styles */
+          .footer {
+            background-color: #f0f0f0;
+            border-top: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            width: 100%;
+          }
+          
+          .footer p {
+            margin: 0;
+          }
+          
+          /* Responsive adjustments */
+          @media (max-width: 768px) {
+            .formtable td.right {
+              width: 100%;
+              text-align: left;
+              display: block;
+            }
+            
+            .formtable td:not(.right) {
+              width: 100%;
+              display: block;
+            }
+            
+            .content {
+              padding: 10px;
+            }
+          }
